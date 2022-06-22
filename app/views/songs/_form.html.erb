@@ -26,6 +26,11 @@
     <%= form.number_field :BPM %>
   </div>
 
+  <div class="field">
+    <%= form.label :genre_id %>
+    <%= form.select :genre_id, Genre.all.collect {|u| [u.name, u.id]}, :prompt => 'Select' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
