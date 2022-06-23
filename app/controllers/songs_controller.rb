@@ -6,10 +6,16 @@ class SongsController < ApplicationController
     if params[:album_id] != nil
       @songs = Song.where(album_id: params[:album_id])
     else
-      @songs = Song.all
+        if params[:genre_id] != nil
+          @songs = Song.where(genre_id: params[:genre_id])
+        else
+           if params[:artist_id] != nil
+              @songs = Song.where(artist_id: params[:artist_id])
+            else
+              @songs = Song.all
+            end
+        end
     end
-
-    @albums = Album.all
   end
 
   # GET /songs/1 or /songs/1.json

@@ -17,6 +17,8 @@
         <td><%= link_to 'Show', artist %></td>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
         <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Associated Songs', songs_path(artist_id: artist.id) %></td>
+        <td><%= link_to 'Associated Albums', albums_path(artist_id: artist.id) %></td>
       </tr>
     <% end %>
   </tbody>
