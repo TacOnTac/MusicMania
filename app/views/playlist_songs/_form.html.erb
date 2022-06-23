@@ -16,6 +16,11 @@
     <%= form.select :song_id, Song.all.collect {|u| [u.name, u.id]}, :prompt => 'Select' %>
   </div>
 
+  <div class="field">
+    <%= form.label :playlist_id %>
+    <%= form.select :playlist_id, Playlist.all.collect {|u| [u.name, u.id]}, :prompt => 'Select' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
