@@ -14,8 +14,8 @@
   <tbody>
     <% @playlist_songs.each do |playlist_song| %>
       <tr>
-        <td><%= playlist_song.song_id %></td>
-        <td><%= playlist_song.playlist_id %></td>
+        <td><%= playlist_song.song.name %></td>
+        <td><%= playlist_song.playlist.name %></td>
         <td><%= link_to 'Show', playlist_song %></td>
         <td><%= link_to 'Edit', edit_playlist_song_path(playlist_song) %></td>
         <td><%= link_to 'Destroy', playlist_song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
