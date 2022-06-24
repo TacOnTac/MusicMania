@@ -3,7 +3,11 @@ class PlaylistSongsController < ApplicationController
 
   # GET /playlist_songs or /playlist_songs.json
   def index
-    @playlist_songs = PlaylistSong.all
+    if params[:playlist_id] != nil
+      @playlists = Playlist.where(playlist_id: params[:playlist_id])
+    else
+      @playlist_songs = PlaylistSong.all
+    end
   end
 
   # GET /playlist_songs/1 or /playlist_songs/1.json
