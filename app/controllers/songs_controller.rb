@@ -12,7 +12,7 @@ class SongsController < ApplicationController
            if params[:artist_id] != nil
               @songs = Song.where(artist_id: params[:artist_id])
             else
-              @songs = Song.all
+              @songs = Song.all.with_attached_mp3
             end
         end
     end
@@ -34,6 +34,7 @@ class SongsController < ApplicationController
   # POST /songs or /songs.json
   def create
     @song = Song.new(song_params)
+    @song.mp3.attach(parms[:song][:mp3])
 
     respond_to do |format|
       if @song.save
@@ -50,6 +51,9 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
+        @song.mp3.attach(params[:song][:mp3]) if params[:song][:mp3]
+
+
         format.html { redirect_to song_url(@song), notice: "Song was successfully updated." }
         format.json { render :show, status: :ok, location: @song }
       else
@@ -77,6 +81,6 @@ class SongsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:name, :durationseconds, :BPM, :genre_id, :artist_id, :album_id)
+      params.require(:song).permit(:name, :durationseconds, :BPM, :genre_id, :artist_id, :album_id, :mp3)
     end
 end
