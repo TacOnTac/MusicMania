@@ -19,6 +19,7 @@
         <td><%= link_to 'Show', playlist %></td>
         <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
         <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Songs In Playlist', playlistsongs_path(playlist_id: playlist.id) %></td>
       </tr>
     <% end %>
   </tbody>
