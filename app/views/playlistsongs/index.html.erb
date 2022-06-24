@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Song</th>
+      <th>Playlist</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
   <tbody>
     <% @playlistsongs.each do |playlistsong| %>
       <tr>
+        <td><%= playlistsong.song_id %></td>
+        <td><%= playlistsong.playlist_id %></td>
         <td><%= link_to 'Show', playlistsong %></td>
         <td><%= link_to 'Edit', edit_playlistsong_path(playlistsong) %></td>
         <td><%= link_to 'Destroy', playlistsong, method: :delete, data: { confirm: 'Are you sure?' } %></td>
