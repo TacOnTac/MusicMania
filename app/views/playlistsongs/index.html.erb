@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Playlist Songs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlistsongs.each do |playlistsong| %>
+      <tr>
+        <td><%= link_to 'Show', playlistsong %></td>
+        <td><%= link_to 'Edit', edit_playlistsong_path(playlistsong) %></td>
+        <td><%= link_to 'Destroy', playlistsong, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Playlist Song', new_playlistsong_path %>
