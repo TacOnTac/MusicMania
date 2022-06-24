@@ -43,8 +43,8 @@
 
   <div class="field">
     <% if song.mp3.attached? %>
-    <!--might be an issue \/ -->
-      <%= audio_tag song.mp3 %>
+    <!--fixed (thanks monsieur) -->
+      <%= audio_tag song.mp3.attachment %>
     <% end %>
     <%= form.label :mp3 %>
     <%= form.file_field :mp3 %>
