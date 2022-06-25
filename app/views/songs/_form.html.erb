@@ -44,7 +44,9 @@
   <div class="field">
     <% if song.mp3.attached? %>
     <!--fixed (thanks monsieur) -->
-      <%= audio_tag song.mp3.attachment %>
+        <audio controls>
+          <source src="<%= rails_blob_url @song.mp3 %>" />
+        </audio>
     <% end %>
     <%= form.label :mp3 %>
     <%= form.file_field :mp3 %>
